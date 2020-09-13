@@ -1,0 +1,9 @@
+com\soft\wesker\controller\UserCheckRequest.class
+com\soft\wesker\dao\UserCheckDao.class
+com\soft\wesker\service\UserCheckService.class
+com\soft\wesker\dao\TUserMapper.class
+com\soft\wesker\jdbc\DynamicDataSource.class
+com\soft\wesker\SpringBootStarter.class
+META-INF\spring-configuration-metadata.json
+com\soft\wesker\jdbc\DruidConfig.class
+com\soft\wesker\dao\TUser.class

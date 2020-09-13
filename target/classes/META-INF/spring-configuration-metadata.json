@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "spring.druid",
+      "type": "com.soft.wesker.jdbc.DruidConfig",
+      "sourceType": "com.soft.wesker.jdbc.DruidConfig"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

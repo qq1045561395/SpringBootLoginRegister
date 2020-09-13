@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style type="text/css">
+        /*<!--给id等于login的标签起个固定的大小，margin: 10px auto的话auto就是左右居中-->*/
+        #login {
+            width: 400px;
+            height: 400px;
+            margin: 10px auto;
+            background-color: aquamarine;
+        }
+
+        /*把所有li列表设置为行内块，margin外边距，还有每个li列表的大小*/
+        li {
+            display: inline-block;
+            margin: 10px;
+            text-align: left;
+            line-height: 30px;
+            width: 70px;
+            height: 30px;
+        }
+        /*设置按钮为相对定位，left可以按定位来调整按钮的位置*/
+        .btn{
+            width: 80px;
+            height: 30px;
+            position: relative;
+        }
+        /*设置标签的字体和颜色*/
+        p {
+            font-size: 30px;
+            font-weight: bold;
+            color: black;
+            padding: 10px 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        function LoginOn(){
+            /**
+             * 获取输入框的ID和输入内容属性
+             */
+            var user=document.getElementById("user").value;
+            var pass=document.getElementById("pass").value;
+            var againPass=document.getElementById("againPass").value;
+
+            /**
+             * 判断输入框的ID文本框是不是输入数字英文，但不是中文
+             */
+            var reg = new RegExp("[\\u4E00-\\u9FFF]+","g");
+
+
+            if (!reg.test(user)&&!reg.test(pass)){
+                var opt=document.getElementById("opt").value;
+                var zw=document.getElementById("zw").value;
+                /**
+                 * 判断中文名字2-4位
+                 */
+                var re1 = /^[\u4e00-\u9fa5]{2,4}$/;
+                /**
+                 * 判断QQ号码10位
+                 */
+                var re2 = /^[1-9][0-9]{4,14}$/;
+                /**
+                 * 判断电话11位
+                 */
+                var re3 = /^1[3-9][0-9]{9}$/;
+                /**
+                 * 判断日期格式 例: 2019-09-12
+                 */
+                var re4 = /^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/;
+
+                if (opt=="名字"){
+                    if (re1.test(zw)){
+                        document.getElementById("zw").innerHTML;
+                    }else {
+                        document.getElementById("otpText").innerHTML="请输入正确的中文名字2-4位";
+                        return false;
+                    }
+                }
+                if (opt=="QQ"){
+                    if (re2.test(zw)){
+                        document.getElementById("zw").innerHTML;
+                    }else{
+                        document.getElementById("otpText").innerHTML="请输入正确的QQ号码10位";
+                        return false;
+                    }
+                }
+
+                if (opt=="电话"){
+                    if (re3.test(zw)){
+                        document.getElementById("zw").innerHTML;
+                    }else {
+                        document.getElementById("otpText").innerHTML="请输入正确的电话号码11位";
+                        return false;
+                    }
+                }
+
+                if (opt=="生日"){
+                    if (re4.test(zw)){
+                        document.getElementById("zw").innerHTML;
+                    }else{
+                        document.getElementById("otpText").innerHTML="请输入正确的生日格式：xxxx-xx-xx";
+                        return false;
+                    }
+                }
+
+                //提交
+                document.getElementById("AllFile").submit();
+            }else{
+                document.getElementById("userText").innerHTML="请不要输入中文";
+                return false;
+            };
+            return true;
+        };
+    </script>
+</head>
+<body>
+<ul id="login" >
+    <!--   action里面起个合理的url地址就行，我后台才能通过它获取到提交过来的数据，请求方法用post(不知道get和post的可以去百度) -->
+    <form action="/user/register" method="post" id="AllFile">
+
+        <p align="center">注册</p>
+
+        <li>账号:</li>
+        <li><input type="text" id="user" name="username"/></li>
+
+        <br>
+        <div id="userText"></div>
+        <br>
+        <li>密码:</li>
+        <li><input type="password" id="pass" name="password" /></li>
+        <br>
+        <li>确认密码:</li>
+        <li><input type="password" id="againPass" name="againpassword" /></li>
+        <br>
+        <li>密保:</li>
+        <li><select id="opt" name="option">
+            <option selected>名字</option>
+            <option>QQ</option>
+            <option>电话</option>
+            <option>生日</option>
+        <li><input type="text" id="zw" name="optionText" /></li>
+        </select></li>
+
+        <br>
+        <div id="otpText"></div>
+        <br>
+        <li><input class="btn"  type="button" value="注册" onclick="LoginOn()"/></li>
+
+
+
+
+
+
+    </form>
+
+</ul>
+</body>
+</html>
