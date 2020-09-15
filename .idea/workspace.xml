@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3fc8b91e-9c19-4596-be74-94fe6c1a40b9" name="Default Changelist" comment="" />
+    <list default="true" id="3fc8b91e-9c19-4596-be74-94fe6c1a40b9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,7 +45,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunManager">
     <configuration name="SpringBootStarter" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -71,7 +80,8 @@
       <updated>1599748717599</updated>
       <workItem from="1599748720923" duration="68000" />
       <workItem from="1599803512678" duration="37000" />
-      <workItem from="1599989625992" duration="607000" />
+      <workItem from="1599989625992" duration="1881000" />
+      <workItem from="1600145484370" duration="13000" />
     </task>
     <servers />
   </component>
@@ -99,9 +109,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599803549100" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1599748750358">
+    <state x="461" y="162" key="SettingsEditor" timestamp="1600004069218">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599748750358" />
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1600004069218" />
   </component>
 </project>
