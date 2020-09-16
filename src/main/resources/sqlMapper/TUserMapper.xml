@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soft.wesker.dao.TUserMapper">
+
+    <sql id="Info">
+        id,
+        user_name,
+        pass_word
+    </sql>
+
+    <!--    建立映射关系-->
+    <resultMap id="BaseResultMap" type="com.soft.wesker.dao.TUser">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="pass_word" property="passWord" jdbcType="VARCHAR"/>
+        <result column="problem" property="problem" jdbcType="VARCHAR"/>
+        <result column="problem_text" property="problemText" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--    查找用户-->
+    <select id="checkUserName" resultMap="BaseResultMap">
+        select
+        <include refid="Info"></include>
+        from t_user
+        <where>
+            <if test="userName != null">
+                and user_name = #{userName,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+
+    <!--    注册用户-->
+    <insert id="registerUser" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="passWord != null">
+                pass_word,
+            </if>
+            <if test="problem != null">
+                problem,
+            </if>
+            <if test="problemText != null">
+                problem_text,
+            </if>
+        </trim>
+
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="passWord != null">
+                #{passWord,jdbcType=VARCHAR},
+            </if>
+            <if test="problem != null">
+                #{problem,jdbcType=VARCHAR},
+            </if>
+            <if test="problemText != null">
+                #{problemText,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="changeUser" parameterType="com.soft.wesker.dao.TUser">
+            update t_user
+            <set>
+                <if test="passWord != null">
+                    pass_word = #{passWord,jdbcType=VARCHAR}
+                </if>
+                where user_name = #{userName,jdbcType=VARCHAR}
+            </set>
+    </update>
+
+    <!--    找回密码-->
+    <select id="finkUser" resultMap="BaseResultMap">
+        select
+        <include refid="Info"></include>
+        from t_user
+        <where>
+            <if test="userName != null">
+                and user_name = #{userName,jdbcType=VARCHAR}
+                and problem = #{option,jdbcType=VARCHAR}
+                and problem_text = #{optionText,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+</mapper>
